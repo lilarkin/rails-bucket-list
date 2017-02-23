@@ -44,11 +44,11 @@ class BucketlistsController < ApplicationController
   end
 
   private
-    def set_bucketlist
-      params.require(:bucketlist).permit(:title)
-    end
+   def set_bucketlist
+     @bucketlist = Bucketlist.find(params[:id])
+   end
 
-    def bucketlist_params
-      @bucketlist = Bucketlist.find(params[:id])
-    end
+   def bucketlist_params
+     params.require(:bucketlist).permit(:title)
+   end
 end

@@ -1,5 +1,4 @@
-<h1>Bucketlists#new</h1>
-<p>Find me in app/views/bucketlists/new.html.erb</p>
+<%= render(partial: 'form') %>
 
 <%= link_to 'Show b', bucketlist_path(@bucketlist) %>
-<%= link_to 'Back', new_bucketlist_path %>
+<%= link_to 'Back', :back %>

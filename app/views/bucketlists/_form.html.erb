@@ -1,0 +1,11 @@
+<%= form_for @bucketlist do |f| %>
+  <div class='field'>
+    <div class=''>
+      <h3><%= f.label :title %></h3>
+      <h5><%= f.text_field :title %></h5>
+    </div>
+    <br />
+  </div>
+
+  <%= f.submit 'Submit', class: ''%>
+<% end %>
