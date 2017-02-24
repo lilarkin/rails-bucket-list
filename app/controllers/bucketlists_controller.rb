@@ -2,7 +2,7 @@ class BucketlistsController < ApplicationController
   before_action :set_bucketlist, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bucketlists = Bucketlist.all
+    @bucketlists = current_user.bucketlists.paginate(page: params[:page], per_page: 3)
     flash[:info] = 'Welcome to the Bucket Lists'
   end
 
@@ -14,7 +14,7 @@ class BucketlistsController < ApplicationController
   end
 
   def create
-    @bucketlist = Bucketlist.new(bucketlist_params)
+    @bucketlist = current_user.bucketlists.new(bucketlist_params)
     if @bucketlist.save
       flash[:success] = 'New Bucket List Created'
       redirect_to bucketlist_path(@bucketlist)
@@ -28,7 +28,7 @@ class BucketlistsController < ApplicationController
   end
 
   def update
-    if Bucklist.update(bucketlist_params)
+    if @bucketlist.update(bucketlist_params)
       flash[:success] = 'Bucket List Updated'
       redirect_to bucketlist_path(@bucketlist)
     else
@@ -50,5 +50,5 @@ class BucketlistsController < ApplicationController
 
    def bucketlist_params
      params.require(:bucketlist).permit(:title)
-   end
+   end 
 end

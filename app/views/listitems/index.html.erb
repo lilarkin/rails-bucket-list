@@ -1,2 +1,17 @@
-<h1>Listitems#index</h1>
-<p>Find me in app/views/listitems/index.html.erb</p>
+<div class='field margin'>
+  <% @listitems.each do |listitem| %>
+    <div class='card'>
+      <h4><%= listitem.title %></h4>
+
+      <h5><%= listitem.description %></h5>
+
+      <h6><%= listitem.complete %><h6>
+
+      <%= link_to 'Show List Items', bucketlist_listitem_path(@bucketlist, listitem), class: 'btn' %>
+
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'Back', :back %>
+<%= link_to 'New List Item', new_bucketlist_listitem_path(@bucketlist) %>

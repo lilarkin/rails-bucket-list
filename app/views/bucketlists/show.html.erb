@@ -1,2 +1,16 @@
-<h1>Bucketlists#show</h1>
-<p>Find me in app/views/bucketlists/show.html.erb</p>
+<ul>
+  <h3 class='field'>
+    <div class=''>
+      <li>Name: <%= @bucketlist.title %> </li>
+    </div>
+  </h3>
+    <li>
+      <%= link_to 'Edit', edit_bucketlist_path(@bucketlist), class: 'btn' %>
+      <%= link_to 'Delete', bucketlist_path(@bucketlist), method: :delete, data: {confirm: 'Really Delete?'}, class: 'btn orange white-text' %>
+    </li>
+</ul>
+
+<%= link_to 'Back', :back %>
+<%= link_to 'Show Bucketlists', bucketlist_path(@bucketlist) %>
+<%= link_to 'New List Item', new_bucketlist_listitem_path(@bucketlist) %>
+

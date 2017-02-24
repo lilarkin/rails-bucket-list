@@ -16,6 +16,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'will_paginate', '~> 3.1.0'
+gem 'devise', '~> 4.2.0'
 
 group :development, :test do
   gem 'pry'

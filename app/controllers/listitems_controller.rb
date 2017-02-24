@@ -19,8 +19,9 @@ class ListitemsController < ApplicationController
       flash[:success] = 'New List Item Created'
       redirect_to bucketlist_listitem_path(@bucketlist, @listitem)
     else
-      flash[:error] = 'Please Try Again'
+      flash[:error] = 'Please Try Again' + @listitem.errors.full_messages.to_sentence
       render :new
+    end
   end
 
   def edit
@@ -44,7 +45,7 @@ class ListitemsController < ApplicationController
 
   private
     def set_bucketlist
-      @bucketlist = Bucketlist.find(params[;bucketlist_id])
+      @bucketlist = Bucketlist.find(params[:bucketlist_id])
     end
 
     def set_listitem
@@ -52,6 +53,6 @@ class ListitemsController < ApplicationController
     end
 
     def listitem_params
-      params.require(:listitem).permit(:title, :desciption, :complete)
+      params.require(:listitem).permit(:title, :description, :complete)
     end
 end

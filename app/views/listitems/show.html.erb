@@ -1,2 +1,14 @@
-<h1>Listitems#show</h1>
-<p>Find me in app/views/listitems/show.html.erb</p>
+<div class='field'>
+  <div class=''>
+    <h4><%= @listitem.title %></h4>
+
+    <h5><%= @listitem.description %></h5>
+
+    <h6><%= @listitem.complete %></h6>
+
+    <%= link_to 'Show List Items', bucketlist_listitems_path(@bucketlist, @listitem), class: 'btn' %>
+    <%= link_to 'Edit', edit_bucketlist_listitem_path(@bucketlist, @listitem), class: 'btn' %>
+  </div>
+</div>
+
+<%= link_to 'Back', :back, class: 'btn' %>
