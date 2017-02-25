@@ -1,15 +1,17 @@
 <div class='field'>
   <% @bucketlists.each do |bucketlist| %>
     <div class='col-sm-12 col-m-3'>
-      <h5><%= bucketlist.title %></h5>
-      <%= link_to 'Show', bucketlist_path(bucketlist), class: 'btn' %>
-      <%= link_to 'List Items', bucketlist_listitems_path(bucketlist), class: 'btn' %>
+      <h5>
+        <%= bucketlist.title %>
+        <%= link_to 'Show', bucketlist_path(bucketlist), class: 'btn btn-default' %>
+        <%= link_to 'List Items', bucketlist_listitems_path(bucketlist), class: 'btn btn-default' %>
+      </h5>
     </div>
   <% end %>
 </div>
 
 <%= link_to 'Back', :back, class: 'btn btn-default' %>
-<%= link_to 'New Bucketllist', new_bucketlist_path, class: 'btn' %>
+<%= link_to 'New Bucketllist', new_bucketlist_path, class: 'btn btn-default' %>
 
 <div class=''>
   <%= will_paginate @trip %>

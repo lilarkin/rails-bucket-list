@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170223235213) do
+ActiveRecord::Schema.define(version: 20170224223547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20170223235213) do
   end
 
   create_table "listitems", force: :cascade do |t|
-    t.string   "title"
-    t.string   "description"
+    t.string   "title",         null: false
+    t.string   "description",   null: false
     t.boolean  "complete"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
@@ -42,10 +42,16 @@ ActiveRecord::Schema.define(version: 20170223235213) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.string   "first_name",                          null: false
+    t.string   "last_name",                           null: false
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "provider"
+    t.string   "uid"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["provider"], name: "index_users_on_provider", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["uid"], name: "index_users_on_uid", using: :btree
   end
 
 end
